@@ -1,0 +1,105 @@
+@use '../util/' as *;
+
+.body {
+  background: linear-gradient(var(--white), var(--gray), var(--white)),
+    no-repeat center center fixed;
+  background-size: cover;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: rem(24); /* Added gap between the grid items */
+  background-color: var(--dkwhite);
+  border-radius: rem(32);
+  margin-top: rem(96);
+  width: rem(668); /* 41.75rem */
+
+  @media (max-width: 43em) {
+    grid-template-columns: 1fr; /* Stack cards in one column on small screens */
+    width: rem(332); /* 20.75rem */
+  }
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    font-size: rem(24);
+    font-weight: bolder;
+  }
+
+  p {
+    font-size: rem(20);
+    line-height: 1.5;
+    font-weight: bold;
+    /* Add color gradient for text (optional) */
+    /* background: linear-gradient(to right, var(--gray), var(--black));
+    -webkit-background-clip: text;
+    color: transparent; */
+  }
+
+  &:hover {
+    background-color: var(--gray); /* Ensure contrast is readable */
+  }
+}
+
+.card2 {
+  position: relative;
+  top: rem(215); /* Adjusted based on rem function */
+  
+  // Use this only if necessary for larger screen adjustments
+  /* @media (min-width: 93.875em) {
+    top: rem(130);
+    bottom: rem(215);
+    left: rem(403);
+  } */
+}
+
+
+// .body {
+//   background: linear-gradient(var(--white), var(--gray), var(--white)), 
+//               no-repeat center center fixed;
+//     background-size: cover;
+// }
+
+// .cards {
+//   display: grid;
+//   grid-template-columns: 1fr;
+//   // grid-template-columns: 1fr;
+//   background-color: var(--dkwhite);
+//   border-radius: 2rem;
+//   margin-top: 6rem;
+//   width: 41.75rem;
+  
+//   @media (max-width: 43em) {
+//     width: 20.75rem;
+//   }
+  
+//   &__title {
+//     display: flex;
+//     justify-content: center;
+//     font-size: 1.5rem;
+//     font-weight: bolder;
+//   }
+
+//   p {
+//     font-size: rem(20);
+//     line-height: 1.5;
+//     font-weight: bold;
+//     // color: liniar-gradient
+//   }
+
+//   &:hover {
+//     background-color: var(--gray);
+//   }
+// }
+
+// .card2 {
+//   position: relative;
+//   top: rem(215);
+  
+//   // @media (min-width: 93.875em) {
+//   //   top: rem(130);
+//   //   bottom: rem(215);
+//   //   left: rem(403);
+//   // }
+// }
