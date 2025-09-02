@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import './../index.css';
+import { useState, useEffect } from "react";
+import "./../index.css";
 
 const MobileMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.matchMedia('(max-width: 40em)').matches);
+  const [, setIsMobile] = useState(
+    window.matchMedia("(max-width: 40em)").matches
+  );
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 40em)');
-    const handleMediaChange = (e) => setIsMobile(e.matches);
+    const mediaQuery = window.matchMedia("(max-width: 40em)");
+    interface MediaQueryEvent {
+      matches: boolean;
+    }
+
+    const handleMediaChange = (e: MediaQueryEvent) => setIsMobile(e.matches);
 
     mediaQuery.addListener(handleMediaChange);
     return () => mediaQuery.removeListener(handleMediaChange);
@@ -15,12 +21,12 @@ const MobileMenu = () => {
 
   const openMenu = () => {
     setMenuOpen(true);
-    document.body.classList.add('no-scroll', 'menu-open');
+    document.body.classList.add("no-scroll", "menu-open");
   };
 
   const closeMenu = () => {
     setMenuOpen(false);
-    document.body.classList.remove('no-scroll', 'menu-open');
+    document.body.classList.remove("no-scroll", "menu-open");
   };
 
   return (
@@ -28,7 +34,7 @@ const MobileMenu = () => {
       <button id="btnOpen" aria-expanded={menuOpen} onClick={openMenu}>
         Open Menu
       </button>
-      <div className={`topnav__menu ${menuOpen ? 'menu-open' : ''}`}>
+      <div className={`topnav__menu ${menuOpen ? "menu-open" : ""}`}>
         <button id="btnClose" aria-expanded={menuOpen} onClick={closeMenu}>
           Close Menu
         </button>
